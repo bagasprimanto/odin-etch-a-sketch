@@ -15,7 +15,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: roboto;
+    font-family: sans-serif;
+}
+
+p {
+    margin-bottom: 16px;
 }
 
 button {
