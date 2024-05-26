@@ -18,6 +18,11 @@ body {
     font-family: roboto;
 }
 
+#set-square {
+    margin-bottom: 16px;
+    padding: 4px;
+}
+
 #grid {
     display: flex;
     flex-wrap: wrap;
@@ -29,8 +34,6 @@ body {
 
 .square {
     background-color: rgb(229, 229, 229);
-    width: 20px;
-    height: 20px;
 }
 
 .highlight {
