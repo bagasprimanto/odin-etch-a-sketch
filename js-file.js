@@ -6,6 +6,9 @@ function initializeGrid() {
         let square = document.createElement("div");
     
         square.setAttribute("class", "square");
+        square.addEventListener("mouseenter", () => {
+            square.classList.add("highlight");
+        });
     
         grid.appendChild(square);
     }
