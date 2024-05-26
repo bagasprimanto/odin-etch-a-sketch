@@ -32,6 +32,7 @@ button {
     height: 320px;
 }
 
+/* By default the square has a background color of black with opacity 0 */
 .square {
     background-color: #000;
     opacity: 0.0;

@@ -78,10 +78,12 @@ function drawSquares(numSquares) {
     }
 }
 
+//Empty the grid
 function emptyGrid() {
     grid.textContent = "";
 }
 
+//Toggles color mode
 function changeColorMode(elem) {
     let colorMode = elem.textContent;
 
@@ -102,13 +104,16 @@ function getRandomColor() {
     return color;
 }
 
+//Set the color of the square depending on the color mode selected
 function setColor(elem) {
     let colorMode = btnSetColor.textContent;
 
     if (colorMode === "Random Color") {
+        //If colorMode is Random Color, set the square background color to a random color with opacity = 1.0
         elem.style.backgroundColor = getRandomColor();
         elem.style.opacity = 1.0;
     } else {
+        //If colorMode is Single Color, set the square background color to a black color with opacity = 0.0
         let bgColor = window.getComputedStyle(elem).getPropertyValue('background-color');
         if(bgColor != 'rgb(0, 0, 0)') {
             elem.style.backgroundColor = '#000';
@@ -116,8 +121,7 @@ function setColor(elem) {
         }
 
         let opacity = elem.style.opacity;
-        elem.style.opacity = opacity ? (parseFloat(opacity) + 0.1) : 0.1;
-        console.log(opacity);
+        elem.style.opacity = opacity ? (parseFloat(opacity) + 0.1) : 0.1; //If opacity is null, then set to 0.1, else increase opacity by 0.1 (10%)
     }
 }
 
