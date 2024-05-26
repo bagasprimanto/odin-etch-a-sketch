@@ -18,7 +18,7 @@ body {
     font-family: roboto;
 }
 
-#set-square {
+button {
     margin-bottom: 16px;
     padding: 4px;
 }
@@ -34,8 +34,4 @@ body {
 
 .square {
     background-color: rgb(229, 229, 229);
-}
-
-.highlight {
-    background-color: black;
 }

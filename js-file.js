@@ -1,5 +1,6 @@
 const grid = document.querySelector("#grid");
 const btnSetSquare = document.querySelector("#set-square");
+const btnSetColor = document.querySelector("#set-color-mode");
 
 function initializeGrid() {
     //Initialize the squares inside the grid
@@ -7,6 +8,11 @@ function initializeGrid() {
 
     //Add click event listener on button for setting number of squares
     btnSetSquare.addEventListener("click", setNumberOfSquares);
+
+    //Add click event listener on button for setting color mode
+    btnSetColor.addEventListener("click", () => {
+        changeColorMode(btnSetColor);
+    });
 }
 
 function setNumberOfSquares() {
@@ -64,7 +70,8 @@ function drawSquares(numSquares) {
         square.style.height = squareWidth + "px";
         square.classList.add("square");
         square.addEventListener("mouseenter", () => {
-            square.classList.add("highlight");
+            // square.classList.add("highlight");
+            setColor(square);
         });
     
         grid.appendChild(square);
@@ -72,7 +79,37 @@ function drawSquares(numSquares) {
 }
 
 function emptyGrid() {
-    grid.textContent = '';
+    grid.textContent = "";
+}
+
+function changeColorMode(elem) {
+    let colorMode = btnSetColor.textContent;
+
+    if (colorMode === "Single Color") {
+        btnSetColor.textContent = "Random Color";
+    } else {
+        btnSetColor.textContent = "Single Color";
+    }
+}
+
+function getRandomColor() {
+    let letters = "0123456789ABCDEF";
+    let color = "#";
+    //Create a color in hex code e.g. #0000FF
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+function setColor(elem) {
+    let colorMode = btnSetColor.textContent;
+
+    if (colorMode === "Random Color") {
+        elem.style.backgroundColor = getRandomColor();
+    } else {
+        elem.style.backgroundColor = "#fa8888";
+    }
 }
 
 initializeGrid();
