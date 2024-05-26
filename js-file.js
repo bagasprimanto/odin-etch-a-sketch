@@ -83,12 +83,12 @@ function emptyGrid() {
 }
 
 function changeColorMode(elem) {
-    let colorMode = btnSetColor.textContent;
+    let colorMode = elem.textContent;
 
     if (colorMode === "Single Color") {
-        btnSetColor.textContent = "Random Color";
+        elem.textContent = "Random Color";
     } else {
-        btnSetColor.textContent = "Single Color";
+        elem.textContent = "Single Color";
     }
 }
 
@@ -107,8 +107,17 @@ function setColor(elem) {
 
     if (colorMode === "Random Color") {
         elem.style.backgroundColor = getRandomColor();
+        elem.style.opacity = 1.0;
     } else {
-        elem.style.backgroundColor = "#fa8888";
+        let bgColor = window.getComputedStyle(elem).getPropertyValue('background-color');
+        if(bgColor != 'rgb(0, 0, 0)') {
+            elem.style.backgroundColor = '#000';
+            elem.style.opacity = 0.0;
+        }
+
+        let opacity = elem.style.opacity;
+        elem.style.opacity = opacity ? (parseFloat(opacity) + 0.1) : 0.1;
+        console.log(opacity);
     }
 }
 
